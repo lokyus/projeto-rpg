@@ -1,48 +1,60 @@
-// Estado inicial do nosso operador
-let pontosRestantes = 0; // Começa em 0 porque vamos definir um total fixo
+// Estado inicial do operador
 let saude = 3;
 let velocidade = 3;
-const TOTAL_PONTOS = 6;
+let tamanho = 3;
 
-function ajustarAtributo(atributo, mudanca) {
-    // Lógica para Saúde
-    if (atributo === 'saude') {
-        if (saude + mudanca >= 1 && saude + mudanca <= 5) { // Limite de 1 a 5
-            if ((saude + mudanca + velocidade) <= TOTAL_PONTOS) {
-                saude += mudanca;
-            } else {
-                // Se aumentar saúde, tira de velocidade automaticamente
-                saude += mudanca;
-                velocidade -= mudanca;
-            }
-        }
-    }
-    
-    // Lógica para Velocidade
-    if (atributo === 'velocidade') {
-        if (velocidade + mudanca >= 1 && velocidade + mudanca <= 5) {
-            if ((velocidade + mudanca + saude) <= TOTAL_PONTOS) {
-                velocidade += mudanca;
-            } else {
-                // Se aumentar velocidade, tira de saúde
-                velocidade += mudanca;
-                saude -= mudanca;
-            }
-        }
+const TOTAL_PERMITIDO = 9;
+const MAX_VALOR = 5;
+const MIN_VALOR = 1;
+
+function ajustar(atributo, mudanca) {
+    console.log("Tentando ajustar:", atributo, mudanca); // Isso vai aparecer no F12
+
+    // 1. Identificar qual atributo queremos mudar
+    let valorAtual;
+    if (atributo === 'saude') valorAtual = saude;
+    if (atributo === 'velocidade') valorAtual = velocidade;
+    if (atributo === 'tamanho') valorAtual = tamanho;
+
+    // 2. Checar limite individual (1 a 5)
+    if (valorAtual + mudanca < MIN_VALOR || valorAtual + mudanca > MAX_VALOR) {
+        console.log("Limite de 1 a 5 atingido.");
+        return;
     }
 
-    atualizarInterface();
+    // 3. Checar orçamento total (9 pontos)
+    let somaAtual = saude + velocidade + tamanho;
+    if (mudanca > 0 && somaAtual >= TOTAL_PERMITIDO) {
+        alert("Limite de 9 pontos atingido! Diminua outro atributo.");
+        return;
+    }
+
+    // 4. Aplicar a mudança
+    if (atributo === 'saude') saude += mudanca;
+    if (atributo === 'velocidade') velocidade += mudanca;
+    if (atributo === 'tamanho') {
+    if (mudanca > 0 && somaAtual < TOTAL_PERMITIDO && tamanho < 5) {
+        tamanho++; // Aumentar o nível de "Compactação" (fica menor)
+    }
+    if (mudanca < 0 && tamanho > 1) {
+        tamanho--; // Diminuir a compactação (fica maior)
+    }
 }
 
-function atualizarInterface() {
+    atualizarTela();
+}
+
+function atualizarTela() {
     document.getElementById("val-saude").innerText = saude;
     document.getElementById("val-vel").innerText = velocidade;
+    document.getElementById("val-tam").innerText = tamanho;
+    
+    let total = saude + velocidade + tamanho;
+    document.getElementById("pontos-restantes").innerText = TOTAL_PERMITIDO - total;
+    let descricaoHitbox = "";
+if (tamanho === 5) descricaoHitbox = "Pequeno (Difícil de atingir) ⚡";
+else if (tamanho === 3) descricaoHitbox = "Médio ⚖️";
+else if (tamanho === 1) descricaoHitbox = "Grande (Alvo fácil) 🛡️";
 
-    // Lógica de Tamanho Baseada na Saúde (Simulando Hitbox do R6)
-    let hitbox = "";
-    if (saude >= 5) hitbox = "Extra-Largo (Fácil de atingir)";
-    else if (saude >= 3) hitbox = "Médio";
-    else hitbox = "Compacto (Difícil de atingir)";
-
-    document.getElementById("val-tamanho").innerText = hitbox;
+document.getElementById("val-tam-desc").innerText = descricaoHitbox;
 }

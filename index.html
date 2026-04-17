@@ -1,22 +1,23 @@
-<h1>Operator Lab - Atributos Dinâmicos</h1>
+<h1>Operator Lab: Custom Build</h1>
+<p>Pontos disponíveis: <span id="pontos-restantes">0</span></p>
 
-<div class="controle">
-    <p>Saúde (HP): 
-        <button onclick="ajustarAtributo('saude', -1)">-</button>
+<div class="controles">
+    <p>🛡️ Saúde: 
+        <button onclick="ajustar('saude', -1)">-</button>
         <span id="val-saude">3</span>
-        <button onclick="ajustarAtributo('saude', 1)">+</button>
+        <button onclick="ajustar('saude', 1)">+</button>
     </p>
-    
-    <p>Velocidade: 
-        <button onclick="ajustarAtributo('velocidade', -1)">-</button>
+
+    <p>⚡ Velocidade: 
+        <button onclick="ajustar('velocidade', -1)">-</button>
         <span id="val-vel">3</span>
-        <button onclick="ajustarAtributo('velocidade', 1)">+</button>
+        <button onclick="ajustar('velocidade', 1)">+</button>
+    </p>
+
+    <p>📏 Tamanho (Hitbox): 
+        <button onclick="ajustar('tamanho', -1)">-</button>
+        <span id="val-tam">3</span>
+        <button onclick="ajustar('tamanho', 1)">+</button>
     </p>
 </div>
-
-<hr>
-
-<div class="resultado">
-    <p><strong>Hitbox Estimada:</strong> <span id="val-tamanho">Médio</span></p>
-    <small>*Total de pontos permitidos: 6</small>
-</div>
+<script src="script.js"></script>
