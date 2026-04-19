@@ -2,54 +2,48 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operação Sahel | Burkina Faso</title>
+    <title>Operação Sahel | Site Oficial</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>SAHEL TACTICAL HUB</h1>
-        <p>Setor de Operações: <strong>Burkina Faso</strong></p>
+    <header class="hero">
+        <div class="overlay">
+            <h1>RED EARTH: BROKEN COMPASS</h1>
+            <p>Táticas de Elite no Coração de Burkina Faso</p>
+            <button class="btn-main">Assista ao Trailer</button>
+        </div>
     </header>
 
-    <main class="controles">
-        <h2>Ficha do Operador</h2>
-        <p>Pontos de Implantação: <span id="pontos-restantes">0</span></p>
-        <hr>
+    <section class="container">
+        <h2>A MISSÃO</h2>
+        <p>Em um futuro próximo, o Sahel tornou-se o epicentro de uma disputa global por recursos. Em Burkina Faso, sua unidade de elite deve operar nas sombras, enfrentando tempestades de areia e dilemas táticos em um terreno onde cada passo pode ser o último.</p>
+    </section>
 
-        <div class="atributo">
-            <span>🛡️ SAÚDE (HP)</span>
-            <div class="botoes">
-                <button onclick="ajustar('saude', -1)">-</button>
-                <span id="val-saude">3</span>
-                <button onclick="ajustar('saude', 1)">+</button>
+    <section class="container">
+        <h2>CONHEÇA OS OPERADORES</h2>
+        <div class="grid-personagens">
+            <div class="card">
+                <img src="img/card-sergey.png" alt="Operador Kaboré">
+                <h3>Sergey</h3>
+                <p>Especialista em Reconhecimento e infiltração em ambientes áridos.</p>
+            </div>
+            <div class="card">
+                <img src="img/card-dimmi.png" alt="Operadora Diallo">
+                <h3>Dimmi</h3>
+                <p>Especialista em demolições e suporte pesado.</p>
+            </div>
+            <div class="card">
+                <img src="img/card-issa.png" alt="Operadora Diallo">
+                <h3>Issa</h3>
+                <p>Especialista em demolições e suporte pesado.</p>
             </div>
         </div>
+    </section>
 
-        <div class="atributo">
-            <span>⚡ MOBILIDADE</span>
-            <div class="botoes">
-                <button onclick="ajustar('velocidade', -1)">-</button>
-                <span id="val-vel">3</span>
-                <button onclick="ajustar('velocidade', 1)">+</button>
-            </div>
-        </div>
+    <footer>
+        <p>&copy; 2026 Sahel Games Studio - Desenvolvido em ADS</p>
+    </footer>
 
-        <div class="atributo">
-            <span>📏 OCULTAÇÃO (HITBOX)</span>
-            <div class="botoes">
-                <button onclick="ajustar('tamanho', -1)">-</button>
-                <span id="val-tam">3</span>
-                <button onclick="ajustar('tamanho', 1)">+</button>
-            </div>
-        </div>
-    </main>
-
-    <div class="resultado">
-        <p><strong>STATUS TÁTICO:</strong> <span id="val-tam-desc">Equilibrado</span></p>
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
