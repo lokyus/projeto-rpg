@@ -17,7 +17,7 @@ h1, h2 {
 .hero {
     height: 60vh;
     /* O caminho abaixo diz: "procure na pasta img o arquivo background-sahel.jpg" */
-    background: url('img/Cinema.png') no-repeat center center/cover;
+    background: url('img/Cinema.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
