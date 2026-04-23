@@ -128,3 +128,33 @@ window.onclick = function(event) {
     const modal = document.getElementById("modal-dossie");
     if (event.target == modal) fecharDossie();
 }
+// Função que inicia a música com o fade-in de 70%
+function iniciarMusicaAutomatico() {
+    const music = document.getElementById("bgMusic");
+    const icone = document.getElementById("icone-som");
+    const btn = document.getElementById("btn-audio");
+
+    if (music.paused) {
+        music.volume = 0;
+        music.play().then(() => {
+            // Se o navegador permitiu o play, faz o fade-in
+            icone.innerText = "🔊";
+            btn.classList.remove("mudo");
+            
+            let fadeIn = setInterval(() => {
+                if (music.volume < 0.7) {
+                    music.volume = Math.min(music.volume + 0.05, 0.7);
+                } else {
+                    clearInterval(fadeIn);
+                }
+            }, 200);
+        }).catch(error => {
+            console.log("Autoplay bloqueado pelo navegador. Aguardando interação.");
+        });
+    }
+}
+
+// "Vigia" o primeiro clique do usuário no site para soltar o som
+window.addEventListener('click', () => {
+    iniciarMusicaAutomatico();
+}, { once: true }); // O '{ once: true }' garante que isso só rode no PRIMEIRO clique

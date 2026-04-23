@@ -250,3 +250,32 @@ h1, h2 {
     background: #c2a878;
     color: #000;
 }
+
+.btn-audio-fixo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 2000; /* Garante que fique acima de tudo */
+    background: rgba(194, 168, 120, 0.2); /* Dourado bem transparente */
+    border: 1px solid rgba(194, 168, 120, 0.4);
+    color: #c2a878;
+    padding: 10px;
+    border-radius: 50%; /* Botão redondo */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-audio-fixo:hover {
+    background: rgba(194, 168, 120, 0.5); /* Fica mais visível ao passar o mouse */
+    transform: scale(1.1);
+}
+
+/* Estado quando está sem som */
+.mudo {
+    opacity: 0.5;
+}
