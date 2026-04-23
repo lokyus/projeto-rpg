@@ -141,18 +141,89 @@ h1, h2 {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9); /* Fundo escurecido */
 }
 
-/* A Caixa do Dossiê */
 .modal-conteudo {
     background-color: #1c1c16;
-    margin: 10% auto;
+    margin: 2% auto; /* Diminuí a margem do topo para 2% */
     padding: 30px;
     border: 2px solid #c2a878;
-    width: 50%;
+    width: 70%;
+    
+    /* AS LINHAS QUE RESOLVEM O SEU PROBLEMA: */
+    max-height: 85vh;    /* Limita a altura a 85% da visão da tela */
+    overflow-y: auto;    /* Cria o scroll interno se o texto for grande */
+    
     color: #d4c5a1;
-    box-shadow: 0 0 20px #c2a878;
+    box-shadow: 0 0 30px rgba(194, 168, 120, 0.2);
+    position: relative;
+}
+
+/* Opcional: Melhore a barra de rolagem para combinar com o tema */
+.modal-conteudo::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-conteudo::-webkit-scrollbar-thumb {
+    background: #c2a878;
+    border-radius: 4px;
+}
+
+.modal-conteudo::-webkit-scrollbar-track {
+    background: #1c1c16;
+}
+
+/* Título do Dossiê */
+#modal-titulo {
+    font-family: 'Orbitron', sans-serif; /* Ou sua fonte principal */
+    color: #c2a878;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* O Corpo do Texto do Dossiê */
+#modal-texto {
+    /* ESSENCIAL PARA MANTER OS ÍCONES E ENTERS DO SERGEY: */
+    white-space: pre-wrap; 
+    
+    font-family: 'Courier New', Courier, monospace; /* Estilo máquina de escrever */
+    line-height: 1.6;
+    color: #a0a08b;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+/* Botão de Fechar (X) */
+.fechar {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #c2a878;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.fechar:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Customização da Barra de Rolagem (Opcional - Estética ADS) */
+.modal-conteudo::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-conteudo::-webkit-scrollbar-track {
+    background: #1c1c16;
+}
+
+.modal-conteudo::-webkit-scrollbar-thumb {
+    background: #c2a878;
+    border-radius: 4px;
 }
 
 .fechar {
